@@ -1,0 +1,32 @@
+.register {
+    display: flex;
+    flex-direction: column;
+}
+
+.register input {
+    margin: 0.50rem auto;
+    width: 20em;
+}
+
+button {
+    margin: 2% 0 3% 0 !important;
+    width: 100%;
+}
+
+p{
+    cursor: pointer;
+    margin-top: 2% !important;
+}
+
+.login {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    align-items: center;
+    margin: 10% 0;
+    
+}
+
+.login input {
+    width: 25em;
+}
