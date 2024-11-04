@@ -1,0 +1,10 @@
+.bill {
+    width: fit-content;
+    display: flex;
+    border-radius: 10px;
+    background-color: #f2ebeb;
+    height: fit-content;
+    padding: 0.5em 2.5em;
+    margin-top: 1.65em;
+    
+}

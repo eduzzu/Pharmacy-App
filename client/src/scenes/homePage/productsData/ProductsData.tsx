@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { useAppSelector } from "../../state/hooks";
-import IProduct from "../../interfaces/IProduct";
+import { useAppSelector } from "../../../state/hooks";
+import IProduct from "../../../interfaces/IProduct";
 import "./productsData.css";
 import { useNavigate } from "react-router-dom";
 
@@ -8,7 +8,7 @@ const ProductsData = () => {
   const [products, setProducts] = useState([]);
   const api = import.meta.env.VITE_API;
   const token = useAppSelector((state) => state.auth.token);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   useEffect(() => {
     const getProducts = async () => {
@@ -26,13 +26,7 @@ const ProductsData = () => {
 
   const handleSelectChange = (evt: React.ChangeEvent<HTMLSelectElement>) => {
     if(evt.target.value === "addProduct"){
-      navigate(`/products/add`);
-    }
-    else {
-      const selectedProductId = evt.target.value;
-      if(selectedProductId) {
-        navigate(`/products/${selectedProductId}`);
-      }
+      navigate(`/products/add-product`);
     }
   }
 
@@ -43,11 +37,10 @@ const ProductsData = () => {
         aria-label="Small select example"
         onChange={handleSelectChange}
       >
-        <option selected>Select a product...</option>
+        <option defaultValue="default">Select a product...</option>
         {products.map((prod: IProduct) => {
-          console.log(prod._id)
           return (
-            <option value={prod._id}>
+            <option>
               {prod.name}, {prod.brand}, {prod.price} RON
             </option>
           );
@@ -61,7 +54,7 @@ const ProductsData = () => {
               <th scope="col">Product</th>
               <th scope="col">Brand</th>
               <th scope="col">Price</th>
-              <th scope="col">Qunatity</th>
+              <th scope="col">Quantity</th>
               <th scope="col">Expiration Date</th>
             </tr>
           </thead>
