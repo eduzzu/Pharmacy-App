@@ -10,6 +10,7 @@ import { fileURLToPath } from "url";
 import authRoutes from "./routes/auth.js";
 import productsRoutes from "./routes/products.js";
 import usersRoutes from "./routes/users.js";
+import billsRoutes from "./routes/bills.js";
 import { importProductsFromExcel } from "./utils/products.js";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -27,6 +28,7 @@ app.use(cors());
 app.use("/auth", authRoutes);
 app.use("/products", productsRoutes);
 app.use("/users", usersRoutes);
+app.use("/bills", billsRoutes);
 
 const PORT = process.env.PORT || 6001;
 const MONGO_URL = process.env.MONGO_URL;
